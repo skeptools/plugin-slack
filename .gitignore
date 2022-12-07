@@ -49,8 +49,8 @@ junit.xml
 /dist/
 !/.eslintrc.json
 !/.seed
-!*.d.ts
-!*.js
-!cdktf.out
-!terraform.tfstate*
-!.gen
+*.d.ts
+*.js
+cdktf.out
+terraform.tfstate*
+.gen

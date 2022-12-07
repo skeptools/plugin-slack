@@ -800,10 +800,10 @@
     cdktf "~0"
     constructs "~10"
 
-"@skeptools/skep-plugin-project@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@skeptools/skep-plugin-project/-/skep-plugin-project-0.0.2.tgz#a14339c8b2193c6f31b97a8236277529ea8405b0"
-  integrity sha512-elpsNLBytcwsv+pO6e84Vs7Y8Fm0/Lkub7QcocB1qZDi/jqFojZiU32ZEHQv2NE12R8qFaX01gPtWduMxvpPQQ==
+"@skeptools/skep-plugin-project@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@skeptools/skep-plugin-project/-/skep-plugin-project-0.0.3.tgz#6a9fabf94e53ed0535323b9ad3a2e49ce049a4da"
+  integrity sha512-iaOgd3VEsq2FJC0J8ZyxHsP98nSeHUCcOTbFz7ARZlsi+UmRTO5iULQm4rhyiFOxTGQo7Oy5vvH0iwUqh6IG8g==
   dependencies:
     "@rlmartin-projen/projen-project" "^0.0.12"
     liquidjs "~9"
