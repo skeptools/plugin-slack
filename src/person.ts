@@ -8,6 +8,8 @@ export interface PersonProps extends BaseProps {
 }
 
 export class Person<RoleType> extends BasePerson<PersonProps, RoleType> {
+  _slackUser: slack.dataSlackUser.DataSlackUser;
+
   constructor(
     scope: Construct,
     namespace: string,
@@ -15,9 +17,14 @@ export class Person<RoleType> extends BasePerson<PersonProps, RoleType> {
     config: PersonProps & PersonBaseProps<RoleType>,
   ) {
     super(scope, namespace, config);
+
+    this._slackUser = new slack.dataSlackUser.DataSlackUser(this, `${namespace}-user`, {
+      queryType: 'email',
+      queryValue: config.emailAddress,
+    });
   }
 
-  get foo(): string {
-    return this._props.foo;
+  get userId() {
+    return this._slackUser.id;
   }
 }

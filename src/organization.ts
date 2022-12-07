@@ -2,7 +2,7 @@ import { BaseOrganization, BaseProps, OrganizationBaseProps } from '@skeptools/s
 import { Construct } from 'constructs';
 
 export interface OrganizationProps extends BaseProps {
-  readonly foo: string;
+  readonly teamChannelPrefix?: string;
 }
 
 export class Organization extends BaseOrganization<OrganizationProps> {
@@ -14,7 +14,7 @@ export class Organization extends BaseOrganization<OrganizationProps> {
     super(scope, namespace, config);
   }
 
-  get foo(): string {
-    return this._props.foo;
+  get teamChannelPrefix() {
+    return this._props.teamChannelPrefix;
   }
 }

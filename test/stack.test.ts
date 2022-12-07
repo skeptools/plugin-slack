@@ -37,7 +37,7 @@ const fooTeam = {
   members: ['balBaz'],
   integrations: {
     slack: {
-      foo: 'bar',
+      noPrivateChannel: true,
     },
   },
 } as TeamProps<Integrations, PeopleKeys, TeamType>;
@@ -47,7 +47,9 @@ const barGuild = {
   leads: ['fooBar'],
   members: ['balBaz'],
   integrations: {
-    slack: {},
+    slack: {
+      noPublicChannel: true,
+    },
   },
   type: 'guild',
 } as TeamProps<Integrations, PeopleKeys, TeamType>;
@@ -58,7 +60,7 @@ const organization: OrganizationProps<Integrations> = {
   name: 'Test',
   integrations: {
     slack: {
-      foo: 'baz',
+      teamChannelPrefix: 'team',
     },
   },
 };
