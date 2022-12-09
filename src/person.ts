@@ -4,7 +4,6 @@ import { Construct } from 'constructs';
 import { Organization } from './organization';
 
 export interface PersonProps extends BaseProps {
-  readonly foo: string;
 }
 
 export class Person<RoleType> extends BasePerson<PersonProps, RoleType> {

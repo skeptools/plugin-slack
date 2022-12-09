@@ -12,7 +12,6 @@ const fooBar = {
   role: 'engineering',
   integrations: {
     slack: {
-      foo: 'bar',
     },
   },
 } as PersonProps<Integrations, RoleType>;
@@ -24,7 +23,6 @@ const balBaz = {
   role: 'product',
   integrations: {
     slack: {
-      foo: 'bal',
     },
   },
 } as PersonProps<Integrations, RoleType>;
