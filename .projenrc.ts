@@ -19,6 +19,7 @@ const project = new SkepPluginProject({
       branches: ['main'],
     },
   },
+  entrypoint: 'dist/index.js',
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
