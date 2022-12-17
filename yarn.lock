@@ -755,10 +755,10 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@rlmartin-projen/projen-project@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@rlmartin-projen/projen-project/-/projen-project-0.0.12.tgz#7ac78580c361d220808e56da92f762edf8c6a822"
-  integrity sha512-9KJrHeQFc/QY2y3NUgOVD24IytxUgQtexgqMxvRZic40ynzC68HmnTUjDlQsER7mh3+HtlqTu+pKvqDtWPHjZg==
+"@rlmartin-projen/projen-project@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@rlmartin-projen/projen-project/-/projen-project-0.0.15.tgz#31363f59574863fa63e71fc4235ceccc8bd39e4a"
+  integrity sha512-mS53QVovA43bgnQMfrYTKoOwpCLZdYGzziH1e23JktCNN4ElE4mHnVGeL7kgST6/EZ7JQ5RvCeFCUAvItrA0oA==
   dependencies:
     liquidjs "~9"
     projen "~0"
@@ -801,12 +801,12 @@
     constructs "~10"
     timezone-enum "~1"
 
-"@skeptools/skep-plugin-project@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@skeptools/skep-plugin-project/-/skep-plugin-project-0.0.7.tgz#ae1deff32a81d2926f1ef17c19a6ad43eca76400"
-  integrity sha512-A34sfyqMcaAp1cY00xr5mEA1enDa8Olb+Xrw8sSE9NBrckRIj3XL2XywPjoXQFrdv2hcxvzYl/Xg4v9E8vtMlA==
+"@skeptools/skep-plugin-project@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@skeptools/skep-plugin-project/-/skep-plugin-project-0.0.8.tgz#e4067bcfcae4638babab094e592f285a97082b4d"
+  integrity sha512-kyuO2iGWJYeJINy9RPRZAjXGOjbUyBcjDH46aKdc4Nz02adOLYSD/EH2NOZBwu8n0GbMg8eceoHrzGBLdbrYsA==
   dependencies:
-    "@rlmartin-projen/projen-project" "^0.0.12"
+    "@rlmartin-projen/projen-project" "^0.0.15"
     liquidjs "~9"
     projen "~0"
 
@@ -1763,9 +1763,9 @@ console-control-strings@^1.1.0:
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
 constructs@~10:
-  version "10.1.191"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.1.191.tgz#9588d06a46678f87e6b2678bf2edd2f81789484d"
-  integrity sha512-TKe0otuo/2X6DKtlKMq78Zx/GIYhj4hmIvaWt0/Faw8u/2/Oj8T7GFvi9QuDP2FBsvEgPE3zPn01EQsAf7wNjg==
+  version "10.1.192"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.1.192.tgz#e93f671037058b266951c1cac9894c6b7f8d2080"
+  integrity sha512-hupw4oWfKZ2O7Lq0GF0I6l3Mm/cwA0v/LP7nJhynqhh2csvMpbi53h1ltfVnSnTbLmCnA+aiQ0SWjqFaR4wIDg==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
@@ -4348,9 +4348,9 @@ node-int64@^0.4.0:
   integrity sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==
 
 node-releases@^2.0.6:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.7.tgz#593edbc7c22860ee4d32d3933cfebdfab0c0e0e5"
-  integrity sha512-EJ3rzxL9pTWPjk5arA0s0dgXpnyiAbJDE6wHT62g7VsgrgQgmmZ+Ru++M1BFofncWja+Pnn3rEr3fieRySAdKQ==
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.8.tgz#0f349cdc8fcfa39a92ac0be9bc48b7706292b9ae"
+  integrity sha512-dFSmB8fFHEH/s81Xi+Y/15DQY6VHW81nXRj86EMSL3lmuTmK1e+aT4wrFCkTbm+gSwkw4KpX+rT/pMM2c1mF+A==
 
 nopt@^6.0.0:
   version "6.0.0"
@@ -4807,9 +4807,9 @@ progress@^2.0.3:
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
 projen@~0:
-  version "0.65.63"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.65.63.tgz#d691405f3221223dba83cdd39bc66b3e73e69444"
-  integrity sha512-k37Q8biBIjaKOOPvOxUodCGz+3ysQxFndiSfJD1036UArOamDzGuVQkACeDPk8I3AiEECkhHcxp8iTs27LRnJA==
+  version "0.65.64"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.65.64.tgz#1f3b08f68387441ec87811721b1167551caaef9b"
+  integrity sha512-HmAevyqJDDB4w0Q6OXB/8awgiza/w5RweeP/Sx6zkFm9wmdVXPdOfB6jEEzQdVTQAFrZFpKIo90IpokJ23fTfA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
