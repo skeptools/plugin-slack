@@ -68,7 +68,7 @@ export class Team<
 
     new slack.usergroupMembers.UsergroupMembers(this, `${namespace}-group-members`, {
       usergroupId: slackGroup.id,
-      members: getRecordValues(this._allPeople).map(person => person.userId).filter(id => id != null),
+      members: getRecordValues(this._allPeople).map(person => person.userId),
     });
 
     if (channelIds.length > 0) {
