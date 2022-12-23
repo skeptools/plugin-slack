@@ -30,17 +30,17 @@ export class Team<
   ) {
     super(scope, namespace, people, config);
 
-    let slackGroup = new slack.usergroup.Usergroup(this, `${namespace}-group`, {
-      handle: `${this.kebabSlug}-${this.type}`,
-      name: this.name,
-    });
-
     const channelIds = [];
-    if (!this._props.noPrivateChannel) {
+    const { noPrivateChannel = false, noPublicChannel = false } = this._props;
+    const freeVersion = org.freeVersion;
+    const topic = this._props.homepage?.replace(/^/, '<')?.replace(/$/, '>') ?? this.name;
+    if (!(noPrivateChannel || freeVersion)) {
+      // Don't create a private channel for freeVersion, because team members would need to be
+      // manually added to it by the Slack token-holder account (which is likely a Slack app).
       let slackChannel = new slack.conversation.Conversation(this, `${namespace}-channel-private`, {
 
         name: `${appendIf(org.teamChannelPrefix, '-')}${this.kebabSlug}-only`,
-        topic: this._props.homepage?.replace(/^/, '<')?.replace(/$/, '>') ?? this.name,
+        topic,
         purpose: 'Team-only',
         isPrivate: true,
         lifecycle: {
@@ -51,11 +51,11 @@ export class Team<
       channelIds.push(slackChannel.id);
     }
 
-    if (!this._props.noPublicChannel) {
+    if (!noPublicChannel) {
       let publicSlackChannel = new slack.conversation.Conversation(this, `${namespace}-channel-public`, {
 
         name: `${appendIf(org.teamChannelPrefix, '-')}${this.kebabSlug}`,
-        topic: this._props.homepage?.replace(/^/, '<')?.replace(/$/, '>') ?? this.name,
+        topic,
         purpose: 'Team + Partners',
         isPrivate: false,
         lifecycle: {
@@ -66,30 +66,39 @@ export class Team<
       channelIds.push(publicSlackChannel.id);
     }
 
-    new slack.usergroupMembers.UsergroupMembers(this, `${namespace}-group-members`, {
-      usergroupId: slackGroup.id,
-      members: getRecordValues(this._allPeople).map(person => person.userId),
-    });
-
-    if (channelIds.length > 0) {
-      new slack.usergroupChannels.UsergroupChannels(this, `${namespace}-group-channels`, {
-        usergroupId: slackGroup.id,
-        channels: channelIds,
+    if (!freeVersion) {
+      let slackGroup = new slack.usergroup.Usergroup(this, `${namespace}-group`, {
+        handle: `${this.kebabSlug}-${this.type}`,
+        name: this.name,
       });
+
+      new slack.usergroupMembers.UsergroupMembers(this, `${namespace}-group-members`, {
+        usergroupId: slackGroup.id,
+        members: getRecordValues(this._allPeople).map(person => person.userId),
+      });
+
+      if (channelIds.length > 0) {
+        new slack.usergroupChannels.UsergroupChannels(this, `${namespace}-group-channels`, {
+          usergroupId: slackGroup.id,
+          channels: channelIds,
+        });
+      }
     }
 
     getRecordKeyValues(org.generateSubGroups(this._allPeople)).map(([name, groupPeople]) => {
       const groupMembers = getRecordValues(groupPeople).map(person => person.userId).filter(id => id != null);
       const kebabName = toKebabSlug(name);
       if (groupMembers.length > 0) {
-        let subGroup = new slack.usergroup.Usergroup(this, `${namespace}-${kebabName}-group`, {
-          handle: `${this.kebabSlug}-${kebabName}`,
-          name: `${this.name} - ${toTitleCase(name)}`,
-        });
-        new slack.usergroupMembers.UsergroupMembers(this, `${namespace}-${kebabName}-group-members`, {
-          usergroupId: subGroup.id,
-          members: groupMembers,
-        });
+        if (!freeVersion) {
+          let subGroup = new slack.usergroup.Usergroup(this, `${namespace}-${kebabName}-group`, {
+            handle: `${this.kebabSlug}-${kebabName}`,
+            name: `${this.name} - ${toTitleCase(name)}`,
+          });
+          new slack.usergroupMembers.UsergroupMembers(this, `${namespace}-${kebabName}-group-members`, {
+            usergroupId: subGroup.id,
+            members: groupMembers,
+          });
+        }
       }
     });
   }

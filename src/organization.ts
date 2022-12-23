@@ -2,6 +2,13 @@ import { BaseOrganization, BaseProps, OrganizationBaseProps } from '@skeptools/s
 import { Construct } from 'constructs';
 
 export interface OrganizationProps extends BaseProps {
+  /**
+   * Indicates whether the Slack workspace is free or paid, because some features
+   * are not available to the free version and should not be managed by this plugin.
+   *
+   * @default - false
+   */
+  readonly freeVersion?: boolean;
   readonly teamChannelPrefix?: string;
 }
 
@@ -12,6 +19,10 @@ export class Organization extends BaseOrganization<OrganizationProps> {
     config: OrganizationProps & OrganizationBaseProps,
   ) {
     super(scope, namespace, config);
+  }
+
+  get freeVersion() {
+    return this._props.freeVersion ?? false;
   }
 
   get teamChannelPrefix() {

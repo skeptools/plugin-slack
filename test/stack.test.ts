@@ -58,6 +58,7 @@ const organization: OrganizationProps<Integrations> = {
   name: 'Test',
   integrations: {
     slack: {
+      freeVersion: true,
       teamChannelPrefix: 'team',
     },
   },
